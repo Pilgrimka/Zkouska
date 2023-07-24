@@ -1,0 +1,2 @@
+admin@gmail.com Heslo:Admin13*
+user@gmail.com	Heslo:User13*
