@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EvidencePojistenychWebAppASP.Models.Pojistenec>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Pojištěnci</h2>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            
+        @if (User.IsInRole("admin"))
+            {
+                <p>
+                    <a href="@Url.Action("Create")" class="btn btn-primary">Nový pojištěnec</a>
+                </p>
+            }                                        
+        </div>
+    </div>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jmeno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bydliste)
+            </th>          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    <a asp-action="Details" asp-route-id="@item.Id"><strong>@item.CeleJmeno</strong></a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bydliste)
+            </td>    
+            <td>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

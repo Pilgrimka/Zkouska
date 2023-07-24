@@ -1,0 +1,67 @@
+﻿@model EvidencePojistenychWebAppASP.Models.Pojisteni
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h5>Detail pojištění</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NazevPojisteni)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CastkaPojisteni)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PredmetPojisteni)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlatnostOd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlatnostDo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VlastnikPoj)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>          
+                <tr>
+                    <td>
+                        @Model.NazevPojisteni
+                    </td>
+                    <td>
+                        @Model.CastkaPojisteni
+                    </td>
+                    <td>
+                        @Model.PredmetPojisteni
+                    </td>
+                    <td>
+                        @Model.PlatnostOd
+                    </td>
+                    <td>
+                        @Model.PlatnostDo
+                    </td>
+                    <td>
+                        @Model.VlastnikPoj.CeleJmeno
+                    </td>                 
+                    <td>
+                        @if (User.IsInRole("admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editovat</a>
+                        <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">Odstranit</a>
+                    }                    
+                    </td>
+                </tr>           
+        </tbody>
+    </table>
+
+  </div> 
+

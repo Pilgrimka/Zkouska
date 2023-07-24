@@ -1,0 +1,80 @@
+﻿@model EvidencePojistenychWebAppASP.Models.Pojistenec
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h5>Pojištěněc</h5>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Jmeno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TelCislo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UliceCisloPop)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mesto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Psc)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.CeleJmeno
+                </td>
+                <td>
+                    @Model.TelCislo
+                </td>
+                <td>
+                    @Model.UliceCisloPop
+                </td>
+                <td>
+                    @Model.Mesto
+                </td>
+                <td>
+                    @Model.Psc
+                </td>
+                <td>
+                @if (User.IsInRole("admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Editovat</a>
+                        <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">Odstranit</a>
+                        <a asp-action="Create" asp-controller="Pojistenis" asp-route-id="@Model?.Id" class="btn btn-primary">Nové pojištění</a>
+                               
+                    }                                                        
+                </td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.MojePojisteni)</th>
+            <th>
+
+            </th>
+        </tr>
+ 
+    </thead>
+    <tbody>
+        @foreach (Pojisteni a in Model.MojePojisteni)
+        {
+        <td><a href="@Url.Action("Index", "Pojistenis")"><strong>@a.NazevPojisteni</strong></a></td>
+        }        
+    </tbody>
+</table>
+

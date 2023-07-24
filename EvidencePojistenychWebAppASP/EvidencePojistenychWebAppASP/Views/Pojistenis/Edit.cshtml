@@ -1,0 +1,59 @@
+﻿@model EvidencePojistenychWebAppASP.Models.Pojisteni
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-3">
+                <label asp-for="NazevPojisteni" class="fw-bold"></label>
+                <input asp-for="NazevPojisteni" class="form-control" />
+                <span asp-validation-for="NazevPojisteni" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CastkaPojisteni" class="fw-bold"></label>
+                <input asp-for="CastkaPojisteni" class="form-control" />
+                <span asp-validation-for="CastkaPojisteni" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PredmetPojisteni" class="fw-bold"></label>
+                <input asp-for="PredmetPojisteni" class="form-control" />
+                <span asp-validation-for="PredmetPojisteni" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PlatnostOd" class="fw-bold"></label>
+                <input asp-for="PlatnostOd" class="form-control" />
+                <span asp-validation-for="PlatnostOd" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PlatnostDo" class="fw-bold"></label>
+                <input asp-for="PlatnostDo" class="form-control" />
+                <span asp-validation-for="PlatnostDo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PojistenecId" class="fw-bold"></label>
+                <select asp-for="PojistenecId" class="form-control" asp-items="ViewBag.PojistenecId"></select>
+                <span asp-validation-for="PojistenecId" class="text-danger"></span>
+            </div>
+              
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">
+                    Uložit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Zpět</a>
+</div>
+

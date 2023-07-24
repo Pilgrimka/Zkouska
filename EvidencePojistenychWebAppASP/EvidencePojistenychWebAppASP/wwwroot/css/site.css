@@ -1,0 +1,17 @@
+/* CSS for the navbar links */
+
+
+.navbar-nav .nav-link {
+    color: #fff; /* Set the default text color */
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+    /* CSS for the hover effect */
+    .navbar-nav .nav-link:hover {
+        border-radius: 10px;
+        background-color: #0094ff; /* Set the background color when hovering */
+        color: #00ffff; /* Set the text color when hovering */
+      
+    }
+
